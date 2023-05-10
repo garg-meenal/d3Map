@@ -171,7 +171,7 @@ export class MapboxComponent implements OnInit {
               {
                 "type": "Feature",
                 "properties": {
-                  "title": "Columbus Park",
+                  "title": "Columbus Park1",
                   "description": "A large park in Chicago's Austin neighborhood"
                 },
                 "geometry": {
@@ -182,7 +182,7 @@ export class MapboxComponent implements OnInit {
               {
                 "type": "Feature",
                 "properties": {
-                  "title": "Columbus Park",
+                  "title": "Columbus Park2",
                   "description": "A large park in Chicago's Austin neighborhood"
                 },
                 "geometry": {
@@ -200,7 +200,14 @@ export class MapboxComponent implements OnInit {
           layout: {
             'icon-image': 'cat',
             'icon-size':0.1,
-            'icon-anchor': 'center'
+            'icon-anchor': 'center',
+            'text-field': ['get', 'title'],
+            'text-font': [
+              'Open Sans Semibold',
+              'Arial Unicode MS Bold'
+              ],
+              'text-offset': [0, 1.25],
+              'text-anchor': 'top'
           }
         });
       });
