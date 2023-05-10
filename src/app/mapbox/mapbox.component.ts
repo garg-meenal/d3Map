@@ -23,7 +23,7 @@ export class MapboxComponent implements OnInit {
           "description": "A northside park that is home to the Lincoln Park Zoo"
         },
         "geometry": {
-          "coordinates": [-87.637596, 41.940403],
+          "coordinates": [-81.6751894, 41.4769349],
           "type": "Point"
         }
       },
@@ -34,7 +34,7 @@ export class MapboxComponent implements OnInit {
           "description": "A lakefront park on Chicago's south side"
         },
         "geometry": {
-          "coordinates": [-87.603735, 41.829985],
+          "coordinates": [-83.603735, 41.829985],
           "type": "Point"
         }
       },
@@ -45,7 +45,7 @@ export class MapboxComponent implements OnInit {
           "description": "A downtown park known for its art installations and unique architecture"
         },
         "geometry": {
-          "coordinates": [-87.622554, 41.882534],
+          "coordinates": [-85.622554, 43.882534],
           "type": "Point"
         }
       },
@@ -56,7 +56,7 @@ export class MapboxComponent implements OnInit {
           "description": "A downtown park that is the site of many of Chicago's favorite festivals and events"
         },
         "geometry": {
-          "coordinates": [-87.619185, 41.876367],
+          "coordinates": [-87.619185, 45.876367],
           "type": "Point"
         }
       },
