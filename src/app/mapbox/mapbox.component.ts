@@ -150,7 +150,60 @@ export class MapboxComponent implements OnInit {
           'circle-radius':10
         }
       });
+      this.loadCatImage();
     });
+  }
+  loadCatImage() {
+    //https://docs.mapbox.com/mapbox-gl-js/example/add-image/
+    //https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/
+
+    this.map.loadImage(
+      'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
+      (error, image) =>{
+        if(error) console.log(error);
+        this.map.addImage('cat', image);
+
+        this.map.addSource('symbol-source',{
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: [
+              {
+                "type": "Feature",
+                "properties": {
+                  "title": "Columbus Park",
+                  "description": "A large park in Chicago's Austin neighborhood"
+                },
+                "geometry": {
+                  "coordinates": [-92.769775, 41.873683],
+                  "type": "Point"
+                }
+              },
+              {
+                "type": "Feature",
+                "properties": {
+                  "title": "Columbus Park",
+                  "description": "A large park in Chicago's Austin neighborhood"
+                },
+                "geometry": {
+                  "coordinates": [-92.769775, 44.873683],
+                  "type": "Point"
+                }
+              } 
+            ]
+          }
+        });
+        this.map.addLayer({
+          id: 'symbol-layer',
+          type: 'symbol',
+          source: 'symbol-source',
+          layout: {
+            'icon-image': 'cat',
+            'icon-size':0.1,
+            'icon-anchor': 'center'
+          }
+        });
+      });
   }
   
 
