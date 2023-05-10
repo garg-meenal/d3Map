@@ -128,29 +128,32 @@ export class MapboxComponent implements OnInit {
         'pk.eyJ1IjoiZHBpZXRyb2NhcmxvIiwiYSI6ImNram9tOGFuMTBvb3oyeXFsdW5uYmJjNGQifQ._zE6Mub0-Vpl7ggMj8xSUQ',
       container: 'map',
       style: this.style,
-      center: [-95.2907462468837, 39.0911397651497], // starting position
-      zoom: 4, // starting zoom
+      center: [-97, 30], // starting position
+      zoom: 3, // starting zoom
     });
 
     
 
     this.map.on('load', () => {
-      this.map.addLayer({
-        id: 'circle-layer',
-        type: 'circle',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'FeatureCollection',
-            features: this.parks.features
-          }
-        },
-        paint: {
-          'circle-color': 'black',
-          'circle-radius':10
-        }
-      });
+      this.loadBlackDots();
       this.loadCatImage();
+    });
+  }
+  loadBlackDots() {
+    this.map.addLayer({
+      id: 'circle-layer',
+      type: 'circle',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: this.parks.features
+        }
+      },
+      paint: {
+        'circle-color': 'black',
+        'circle-radius':10
+      }
     });
   }
   loadCatImage() {
