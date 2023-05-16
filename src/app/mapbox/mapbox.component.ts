@@ -137,6 +137,7 @@ export class MapboxComponent implements OnInit {
     this.map.on('load', () => {
       this.loadBlackDots();
       this.loadCatImage();
+      this.createRoute();
     });
   }
   loadBlackDots() {
@@ -152,7 +153,7 @@ export class MapboxComponent implements OnInit {
       },
       paint: {
         'circle-color': 'black',
-        'circle-radius':10
+        'circle-radius':4
       }
     });
   }
@@ -214,6 +215,40 @@ export class MapboxComponent implements OnInit {
           }
         });
       });
+  }
+
+  createRoute(){
+    const routeCoordinates= [ 
+      [-81.6751894, 41.4769349],
+      [-83.603735, 41.829985],
+      [-87.70199, 41.905423],
+      [-90.70199, 41.905423],
+    ]
+
+      this.map.addLayer({
+        id: 'route',
+        type: 'line',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+              type: 'LineString',
+              coordinates: routeCoordinates
+          }
+        }
+        },
+        layout:{
+          'line-join':'round',
+          'line-cap': 'round'
+        },
+        paint:{
+          'line-color': '#888',
+          'line-width':2
+        }
+      });
+   
   }
   
 
